@@ -18,6 +18,7 @@ Java 9 Application
 ## Notes
 Find all poe repos via the GitHub v4 GraphQL API
 https://developer.github.com/v4/explorer/
+```
 {
   search(query: "topic:poe", type: REPOSITORY, first: 100) {
     nodes {
@@ -27,3 +28,4 @@ https://developer.github.com/v4/explorer/
     }
   }
 }
+```
