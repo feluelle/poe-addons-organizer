@@ -4,7 +4,7 @@ This tool helps organizing all your poe addons. So you only have one application
 Java 9 Application
 - Gradle
 - GraphQL
-- Form
+- JavaFX
 
 ## Features
 - **auto.** find poe tools on GitHub
