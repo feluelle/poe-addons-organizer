@@ -1,12 +1,8 @@
 # poe-addons-organizer
-This tool helps organizing all your poe addons. So you only have one application to install and can keep tracking your addons for updates, etc.
+This tool helps organizing all your poe addons. 
+So you have one application to install that can keep tracking your addons for updates, etc.
 
-Java 9 Application
-- Gradle
-- GraphQL
-- JavaFX
-
-## Features
+## Upcoming Features
 - **auto.** find poe tools on GitHub
 - add the possibility to **manually** add non-GitHub projects to the app
 - display all tools in a form
@@ -15,17 +11,5 @@ Java 9 Application
 - "check for updates" 
 - ...
 
-## Notes
-Find all poe repos via the GitHub v4 GraphQL API
-https://developer.github.com/v4/explorer/
-```
-{
-  search(query: "topic:poe", type: REPOSITORY, first: 100) {
-    nodes {
-      ... on Repository {
-        description
-      }
-    }
-  }
-}
-```
+## Technical Notes
+This is an Application based on [Electron](https://electron.atom.io/)

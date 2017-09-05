@@ -1,21 +1,22 @@
 {
   "name": "poe-addons-organizer",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "version": "0.0.1",
+  "description": "A tool that will organize all your poe addons.",
   "main": "src/main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/feluelle/poe-addons-organizer",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "poe",
+    "path-of-exile",
+    "addon",
+    "made-with-love",
+    "pathofexile"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "feluelle",
+  "license": "MIT",
   "devDependencies": {
     "electron": "~1.6.2"
   }
