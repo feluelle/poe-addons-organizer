@@ -1,8 +1,8 @@
-const AJAX = require("./ajax");
+import { AJAX } from '../../ajax/ajax';
 
 class GitHubClient {
-    constructor(token) {
-        this.token = token;
+    constructor() {
+        this.token = '<auth-token>';
     }
 
     getPoERepos() {
@@ -22,4 +22,4 @@ class GitHubClient {
     }
 }
 
-module.exports = GitHubClient;
+export { GitHubClient };

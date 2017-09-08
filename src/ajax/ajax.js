@@ -26,15 +26,15 @@ class AJAX {
             xhr.open('POST', json.url);
             if (json.headers) {
                 if (json.headers.authorization)
-                    xhr.setRequestHeader("Authorization", json.headers.authorization);
+                    xhr.setRequestHeader('Authorization', json.headers.authorization);
                 if (json.headers.contentType)
-                    xhr.setRequestHeader("ContentType", json.headers.contentType);
+                    xhr.setRequestHeader('ContentType', json.headers.contentType);
                 if (json.headers.accept)
-                    xhr.setRequestHeader("Accept", json.headers.accept);
+                    xhr.setRequestHeader('Accept', json.headers.accept);
             }
             xhr.send(JSON.stringify(json.data));
         });
     }
 }
 
-module.exports = AJAX;
+export { AJAX };

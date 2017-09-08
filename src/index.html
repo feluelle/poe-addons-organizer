@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>PoE Addons Organizer</title>
-  </head>
-  <body>
-    <div id="app">
-      {{ message }}
-    </div>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/vue"></script>
-  <script>
-    require('./renderer.js')
+  <title>PoE Addons Organizer</title>
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    {{ message }}
+  </div>
+</body>
+<script>
+    require("babel-register");
+    require('./renderer.js');
+  
   </script>
 </html>
