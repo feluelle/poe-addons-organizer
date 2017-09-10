@@ -1,4 +1,8 @@
 class GitHubRelease {
+    /**
+     * Defines some important html elements to access its information
+     * @param {HTMLElement} releaseElement
+     */
     constructor(releaseElement) {
         this.metaElement = releaseElement.querySelector('.release-meta');
         this.bodyElement = releaseElement.querySelector('.release-body');

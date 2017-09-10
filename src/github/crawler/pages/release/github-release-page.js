@@ -3,6 +3,9 @@ import { GitHubDocument } from '../../../../github/crawler/pages/github-document
 import { GitHubRelease } from '../../../../github/crawler/pages/release/github-release';
 
 class GitHubReleasePage extends GitHubDocument {
+    /**
+     * Creates a document out of the passed html string by calling the GitHubDocument's constructor
+     */
     constructor(htmlString) {
         super(htmlString);
     }

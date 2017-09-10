@@ -1,4 +1,8 @@
 class GitHubRepository {
+    /**
+     * Defines some important html elements to access its information
+     * @param {HTMLElement} repositoryElement
+     */
     constructor(repositoryElement) {
         this.repositoryElement = repositoryElement;
     }

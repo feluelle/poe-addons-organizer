@@ -1,17 +1,28 @@
 class AJAX {
-    static _init(resolve, reject) {
+    /**
+     * Initializes XMLHttpRequest
+     * @param {Callback} onSuccess
+     * @param {Callback} onError
+     * @return {XMLHttpRequest} xhr
+     */
+    static _init(onSuccess, onError) {
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (xhr.readyState == XMLHttpRequest.DONE) {
                 if (xhr.status == 200)
-                    resolve(xhr.responseText);
+                    onSuccess(xhr.responseText);
                 else
-                    reject(xhr.statusText);
+                    onError(xhr.statusText);
             }
         }
         return xhr;
     }
 
+    /**
+     * Creates a GET request to the passed url
+     * @param {String} url
+     * @return {Promise} promise
+     */
     static get(url) {
         return new Promise((resolve, reject) => {
             const xhr = this._init(resolve, reject);
@@ -20,6 +31,12 @@ class AJAX {
         });
     }
 
+    /**
+     * Creates a POST request with the passed json
+     * @param {Object} json The json has the following structure: 
+     * { url: url, headers: { authorization: authorization, contentType: contentType, accept: accept }, data: data }
+     * @return {Promise} promise
+     */
     static post(json) {
         return new Promise((resolve, reject) => {
             const xhr = this._init(resolve, reject);

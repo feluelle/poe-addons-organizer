@@ -1,10 +1,17 @@
 import { AJAX } from '../../ajax/ajax';
 
 class GitHubClient {
+    /**
+     * Authorizes the GitHubClient by defining the authorization token
+     */
     constructor() {
         this.token = '<auth-token>';
     }
 
+    /**
+     * Gets all information needed to receive all PoE information about GitHub repositories using GitHub's GraphQL API
+     * @return {Promise} promise
+     */
     getPoERepos() {
         const json = {
             url: "https://api.github.com/graphql",
