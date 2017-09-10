@@ -1,8 +1,8 @@
 import { GitHubCrawler } from './github/crawler/github-crawler';
 
-const init = async () => {
+const init = async() => {
     const gitHubCrawler = new GitHubCrawler();
-    const poeRepos = await gitHubCrawler.getPoERepos();
+    const poeRepos = gitHubCrawler.getPoERepos();
 
     return poeRepos;
 };

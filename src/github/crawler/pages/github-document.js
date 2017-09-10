@@ -1,6 +1,6 @@
 class GitHubDocument {
-    constructor(responseText) {
-        this.doc = this._textToHtml(responseText);
+    constructor(htmlString) {
+        this.doc = this._textToHtml(htmlString);
     }
 
     _textToHtml(text) {

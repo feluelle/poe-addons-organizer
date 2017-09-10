@@ -21,6 +21,8 @@ app.on('ready', () => {
     slashes: true
   }));
 
+  mainWindow.webContents.openDevTools();
+
   mainWindow.on('closed', () => {
     mainWindow = null;
   });

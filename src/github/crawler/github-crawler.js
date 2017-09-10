@@ -1,20 +1,26 @@
-import { AJAX } from '../../ajax/ajax';
-import { GitHubSearchDocument } from '../../github/crawler/documents/github-search-document';
+import { GitHubSearchPage } from '../../github/crawler/pages/search/github-search-page';
+import { GitHubReleasePage } from '../../github/crawler/pages/release/github-release-page';
 
 class GitHubCrawler {
-    constructor() {
-
-    }
-
     async getPoERepos() {
-        const searchResponse = await AJAX.get('https://github.com/search?utf8=%E2%9C%93&q=topic%3Apoe&type=');
+        let result = [];
 
-        const gitHubDocument = new GitHubSearchDocument(searchResponse);
-        const repoListItems = gitHubDocument.getRepoListItems();
-        const repoTitles = [];
-        repoListItems.forEach(repo => repoTitles.push(gitHubDocument.getRepoTitle(repo)));
+        const gitHubSearchPage = await GitHubSearchPage.request("?q=topic:pathofexile");
+        const repositories = gitHubSearchPage.getRepositories();
 
-        return repoTitles;
+        repositories.forEach(async (repository) => {
+            const title = repository.getTitle();
+            const gitHubReleasePage = await GitHubReleasePage.request(title);
+            const gitHubReleases = gitHubReleasePage.getReleases();
+            const archives = gitHubReleases.map(gitHubRelease => gitHubRelease.getArchives());
+
+            result.push({
+                "title": title,
+                "archives": archives
+            });
+        });
+
+        return result;
     }
 }
 
