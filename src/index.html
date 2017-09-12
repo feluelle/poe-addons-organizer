@@ -10,12 +10,20 @@
 
 <body>
   <div id="app" v-cloak>
-    {{ message }}
+    <section class="addon" v-for="addon in addons">
+      <h3 class="addon__title">{{ addon.title }}</h3>
+      <select v-if="addon.releases.length > 0" class="addon__release release">
+        <optgroup v-bind:label="release.tag" v-for="release in addon.releases">
+          <option class="release__archive" v-for="archive in release.archives">{{ archive }}</option>
+        </optgroup>
+      </select>
+  </div>
   </div>
 </body>
 <script>
-    require("babel-register");
-    require('./renderer.js');
-  
-  </script>
+  require("babel-register");
+  require('./renderer.js');
+
+</script>
+
 </html>

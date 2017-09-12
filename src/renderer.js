@@ -11,7 +11,7 @@ const render = (poeRepos) => {
     const app = new Vue({
         el: '#app',
         data: {
-            message: poeRepos
+            addons: poeRepos
         }
     });
 };

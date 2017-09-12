@@ -16,11 +16,16 @@ class GitHubCrawler {
             const title = repository.getTitle();
             const gitHubReleasePage = await GitHubReleasePage.request(title);
             const gitHubReleases = gitHubReleasePage.getReleases();
-            const archives = gitHubReleases.map(gitHubRelease => gitHubRelease.getArchives());
+            const releases = gitHubReleases.map(gitHubRelease => {
+                return {
+                    "archives": gitHubRelease.getArchives(),
+                    "tag": gitHubRelease.getTag()
+                };
+            });
 
             result.push({
                 "title": title,
-                "archives": archives
+                "releases": releases
             });
         });
 
