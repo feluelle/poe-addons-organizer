@@ -12,6 +12,14 @@ const render = (poeRepos) => {
         el: '#app',
         data: {
             addons: poeRepos
+        },
+        methods: {
+            download() {
+                const select = document.querySelector('.addon__release-list');
+                const selectedValue = select.options[select.selectedIndex].value;
+
+                window.location.href = `https://github.com${selectedValue}`;
+            }
         }
     });
 };

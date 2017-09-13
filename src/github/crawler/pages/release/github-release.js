@@ -9,6 +9,18 @@ class GitHubRelease {
     }
 
     /**
+     * Gets the release title of the GitHub release
+     * @return {String} title
+     */
+    getTitle() {
+        return this.bodyElement
+            .querySelector('.release-header')
+            .querySelector('.release-title')
+            .querySelector('a')
+            .innerText;
+    }
+
+    /**
      * Gets the release archives of the GitHub release
      * @return {Array} archives
      */
@@ -27,7 +39,7 @@ class GitHubRelease {
         return this.metaElement
             .querySelector('.tag-references')
             .querySelector('.css-truncate-target')
-            .innerHTML;
+            .innerText;
     }
 
 }

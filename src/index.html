@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/vue"></script>
   <title>PoE Addons Organizer</title>
@@ -10,13 +11,17 @@
 
 <body>
   <div id="app" v-cloak>
-    <section class="addon" v-for="addon in addons">
-      <h3 class="addon__title">{{ addon.title }}</h3>
-      <select v-if="addon.releases.length > 0" class="addon__release release">
-        <optgroup v-bind:label="release.tag" v-for="release in addon.releases">
-          <option class="release__archive" v-for="archive in release.archives">{{ archive }}</option>
-        </optgroup>
-      </select>
+    <section class="addon" v-if="addon.releases.length > 0" v-for="addon in addons">
+      <h2 class="addon__title">{{ addon.title }}</h2>
+      <section class="addon__releases">
+        <h3>Releases</h3>
+        <select class="addon__release-list">
+          <optgroup class="release" v-bind:label="release.title" v-for="release in addon.releases">
+            <option class="release__archive" v-for="archive in release.archives">{{ archive }}</option>
+          </optgroup>
+        </select>
+        <button v-on:click="download" class="addon__release-download-button">Download</button>
+      </section>
   </div>
   </div>
 </body>

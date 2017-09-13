@@ -19,7 +19,8 @@ class GitHubCrawler {
             const releases = gitHubReleases.map(gitHubRelease => {
                 return {
                     "archives": gitHubRelease.getArchives(),
-                    "tag": gitHubRelease.getTag()
+                    "tag": gitHubRelease.getTag(),
+                    "title": gitHubRelease.getTitle()
                 };
             });
 
