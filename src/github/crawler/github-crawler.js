@@ -6,10 +6,10 @@ class GitHubCrawler {
      * Gets all information needed to receive all PoE information about GitHub repositories
      * @return {Object} json
      */
-    async getPoERepos() {
+    async getDataByTopic(topicName) {
         const result = [];
 
-        const gitHubSearchPage = await GitHubSearchPage.request("?q=topic:pathofexile");
+        const gitHubSearchPage = await GitHubSearchPage.request(`?q=topic:${topicName}`);
         const repositories = gitHubSearchPage.getRepositories();
 
         repositories.forEach(async (repository) => {
